@@ -105,16 +105,19 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 		// Sets template as file if configured
 		$this->performTemplatePathAndFilename($this->settings['formTemplateRootFile']);
 
-		$url = t3lib_div::getIndpEnv('TYPO3_SITE_URL');
-		if ($this->request->hasArgument('url') && $this->checkUrlWithAllowedDomains($this->request->getArgument('url'))) {
-			$url = $this->request->getArgument('url');
+		if ($recommendation === NULL) {
+			$url = t3lib_div::getIndpEnv('TYPO3_SITE_URL');
+			if ($this->request->hasArgument('url') && $this->checkUrlWithAllowedDomains($this->request->getArgument('url'))) {
+				$url = $this->request->getArgument('url');
+			}
+			$this->view->assign('url', $url);
+		} else {
+			$this->view->assign('url', $recommendation->getUrl());
 		}
 
 		if ($recommendation !== NULL) {
 			$this->view->assign('recommendation', $recommendation);
 		}
-
-		$this->view->assign('url', $url);
 	}
 
 	/**
