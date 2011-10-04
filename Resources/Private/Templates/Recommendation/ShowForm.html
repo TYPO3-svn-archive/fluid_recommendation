@@ -1,0 +1,56 @@
+{namespace r=Tx_FluidRecommendation_ViewHelpers}
+<f:layout name="default" />
+
+<f:section name="main">
+	<div class="recommendedPage">
+		<span><f:translate key="recommendedPage" /></span><span class="url">{url}</span>
+	</div>
+
+	<f:form name="recommendation" action="recommend" object="{recommendation}" arguments="{url:'{url}'}">
+		<f:render partial="formErrors" />
+
+		<div class="receiverInformations">
+			<!--<label>-->
+				<!--<span><f:translate key="label.receiverFirstName" /></span>-->
+				<!--<f:form.textbox property="receiverFirstName" value="{receiverFirstName}" />-->
+			<!--</label>-->
+			<label>
+				<span><f:translate key="label.receiverLastName" /></span>
+				<f:form.textbox property="receiverLastName" value="{receiverLastName}" />
+			</label>
+			<div>
+				<label>
+					<span><f:translate key="label.receiverEmailAddress" /></span>
+					<f:form.textbox property="receiverMail" value="{receiverMail}" />
+				</label>
+			</div>
+		</div>
+
+		<div class="senderInformations">
+			<!--<label>-->
+				<!--<span><f:translate key="label.senderFirstName" /></span>-->
+				<!--<f:form.textbox property="senderFirstName" value="{senderFirstName}" />-->
+			<!--</label>-->
+			<label>
+				<span><f:translate key="label.senderLastName" /></span>
+				<f:form.textbox property="senderLastName" value="{senderLastName}" />
+			</label>
+			<div>
+				<label>
+					<span><f:translate key="label.senderEmailAddress" /></span>
+					<f:form.textbox property="senderMail" value="{senderMail}" />
+				</label>
+			</div>
+		</div>
+
+		<div class="message">
+			<label>
+				<span><f:translate key="label.message" /></span>
+				<f:form.textarea property="message" rows="8" cols="40" />
+			</label>
+		</div>
+
+		<f:form.hidden property="url" value="{url}" />
+		<f:form.submit value="{f:translate(key:'label.submit')}" class="button" />
+	</f:form>
+</f:section>

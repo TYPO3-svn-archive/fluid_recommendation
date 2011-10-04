@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the fluid_recommendation extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="recommendedPage">Sie empfehlen folgende Seite: </label>
+			<label index="returnToUrlLinkText">Zurück zur empfohlenden Seite</label>
+
+			<label index="error.headline">Ein Fehler ist aufgetreten!</label>
+			<label index="error.spam">Um Spam zu vermeiden, ist das Senden von mehreren Empfehlungen an die gleiche E-Mail-Adresse untersagt. Vielen Dank für Ihr Verständnis.</label>
+			<label index="error.unknown">Ein unbekannter Fehler ist aufgetreten. Bitte kehren Sie über den nachfolgenden Link zurück zum Formular und prüfen Sie Ihre Eingabe.</label>
+
+			<label index="label.receiverFirstName">Vorname des Empfängers:</label>
+			<label index="label.receiverLastName">Name des Empfängers:</label>
+			<label index="label.receiverEmailAddress">E-Mail-Adresse des Empfängers:</label>
+
+			<label index="label.senderFirstName">Ihr Vorname:</label>
+			<label index="label.senderLastName">Ihr Name :</label>
+			<label index="label.senderEmailAddress">Ihre E-Mail-Adresse:</label>
+
+			<label index="label.message">Kommentar (optional):</label>
+			<label index="label.submit">Seitenempfehlung versenden</label>
+
+			<label index="validation.field.receiverFirstName">Emfänger Vorname</label>
+			<label index="validation.field.receiverLastName">Emfänger Name</label>
+			<label index="validation.field.receiverMail">Emfänger E-Mail</label>
+			<label index="validation.field.senderFirstName">Ihr Vorname</label>
+			<label index="validation.field.senderLastName">Ihr Name</label>
+			<label index="validation.field.senderMail">Ihre E-Mail-Adresse</label>
+
+			<label index="validation.error.1221560718">Das Feld darf nicht leer sein.</label>
+			<label index="validation.error.1221559976">Das Feld ist keine gültige E-Mail-Adresse.</label>
+
+			<label index="validation.error.field.receiverFirstName">Der Vorname des Empfängers darf nicht leer sein.</label>
+			<label index="validation.error.field.receiverLastName">Der Name des Empfängers darf nicht leer sein.</label>
+			<label index="validation.error.field.senderFirstName">Der Vorname des Absenders darf nicht leer sein.</label>
+			<label index="validation.error.field.senderLastName">Ihr Name darf nicht leer sein.</label>
+		</languageKey>
+	</data>
+</T3locallang>

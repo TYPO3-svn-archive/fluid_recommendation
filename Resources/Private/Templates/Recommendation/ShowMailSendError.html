@@ -1,0 +1,13 @@
+{namespace r=Tx_FluidRecommendation_ViewHelpers}
+<f:layout name="default" />
+
+<f:section name="main">
+	<h4><f:translate key="error.headline" /></h4>
+	<f:if condition="{error}">
+		<div class="error">
+			<p>{error}</p>
+		</div>
+	</f:if>
+
+	<f:link.action action="showForm" class="returnLink" arguments="{url:'{url}'}">Zurück zum Formular</f:link.action>
+</f:section>
