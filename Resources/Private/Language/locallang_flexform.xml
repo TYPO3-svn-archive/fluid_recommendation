@@ -12,6 +12,9 @@
 			<label index="misc">Miscellaneous</label>
 
 			<label index="form.templateRootFile">Formular template (html file):</label>
+			<label index="form.actionOnSuccess">Action to perfom, if recommendation has been succesfully:</label>
+			<label index="form.actionOnSuccess.return">Return to recommended page</label>
+			<label index="form.actionOnSuccess.forward">Go to specified page</label>
 			<label index="form.successPage">Page to redirect to, if recommendation has been successfully:</label>
 
 			<label index="mail.type">Send mail as:</label>
@@ -42,7 +45,9 @@
 			<label index="misc">Sonstiges</label>
 
 			<label index="form.templateRootFile">Formular Template (HTML-Datei):</label>
-
+			<label index="form.actionOnSuccess">Wenn Empfehlung erfolgreich war:</label>
+			<label index="form.actionOnSuccess.return">Kehre zurück zur empfohlenen Seite</label>
+			<label index="form.actionOnSuccess.forward">Gehe zu einer spezifierten Seite</label>
 			<label index="form.successPage">Springe zu dieser Seite, wenn die Empfehlung erfolgreich war:</label>
 
 			<label index="mail.type">Sende E-Mail als:</label>

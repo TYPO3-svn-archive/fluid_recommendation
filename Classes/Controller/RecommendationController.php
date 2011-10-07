@@ -169,7 +169,21 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 
 		// Save recommended page to session
 		$GLOBALS['TSFE']->fe_user->setKey('ses', 'tx_fluid_recommendation_lastRecommendedPage', $recommendation->getUrl());
-		$this->redirectToURI($this->buildUriByUid($this->settings['formSuccessPage']));
+
+		if ($this->settings['actionOnSuccess'] === 'forward') {
+			$this->redirectToURI($this->buildUriByUid($this->settings['formSuccessPage']));
+		} elseif ($this->settings['actionOnSuccess'] === 'return') {
+			if (parse_url($recommendation->getUrl(), PHP_URL_QUERY) === NULL) {
+				$getParameter = '?';
+			} else {
+				$getParameter = '&';
+			}
+			$getParameter .= 'tx_fluid_recommendation[success]=1';
+
+			$this->redirectToURI(
+				$recommendation->getUrl() . $getParameter
+			);
+		}
 		return;
 	}
 
