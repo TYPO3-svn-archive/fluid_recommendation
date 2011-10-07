@@ -10,7 +10,9 @@
 			<label index="returnToUrlLinkText">Zurück zur empfohlenden Seite</label>
 
 			<label index="error.headline">Ein Fehler ist aufgetreten!</label>
+			<label index="error.returnToForm">Zurück zum Formular</label>
 			<label index="error.spam">Um Spam zu vermeiden, ist das Senden von mehreren Empfehlungen an die gleiche E-Mail-Adresse untersagt. Vielen Dank für Ihr Verständnis.</label>
+			<label index="error.urlManipulation">Die zu empfehlende URL wurde manipuliert und erfüllt nun nicht mehr die geforderten Kriterien!</label>
 			<label index="error.unknown">Ein unbekannter Fehler ist aufgetreten. Bitte kehren Sie über den nachfolgenden Link zurück zum Formular und prüfen Sie Ihre Eingabe.</label>
 
 			<label index="label.receiverFirstName">Vorname des Empfängers:</label>

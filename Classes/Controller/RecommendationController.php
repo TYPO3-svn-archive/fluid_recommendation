@@ -130,6 +130,12 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 	 * @dontverifyrequesthash
 	 */
 	public function recommendAction(Tx_FluidRecommendation_Domain_Model_Recommendation $recommendation = NULL) {
+		if (!$this->checkUrlWithAllowedDomains($recommendation->getUrl())) {
+			$error = Tx_Extbase_Utility_Localization::translate('error.urlManipulation', 'fluid_recommendation');
+			$this->redirect('showMailSendError', 'recommendation', NULL, array('url' => $recommendation->getUrl(), 'error' => $error));
+			return;
+		}
+
 		$this->mailUtility->setFluidTemplate($this->makeFluidTemplateObject());
 
 		// Charge recommendation model with some related settings
@@ -241,7 +247,7 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 	 *
 	 * @return boolean Returns TRUE if the URL is valid, otherwise returns FALSE
 	 */
-	protected function checkUrlWithAllowedDomains($url) {
+	public function checkUrlWithAllowedDomains($url) {
 		$allowedUrls = $this->settings['allowedUrls'];
 		if (empty($allowedUrls)) {
 			$allowedUrls = t3lib_div::getHostname();
