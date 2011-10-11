@@ -6,9 +6,9 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="form">Formular</label>
+			<label index="form">Form</label>
 			<label index="mail">Mail</label>
-			<label index="validate">Validate</label>
+			<label index="validate">Validation</label>
 			<label index="misc">Miscellaneous</label>
 
 			<label index="form.templateRootFile">Formular template (html file):</label>
