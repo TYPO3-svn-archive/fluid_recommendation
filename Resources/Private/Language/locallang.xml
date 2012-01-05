@@ -62,9 +62,9 @@
 			<label index="label.message">Kommentar (optional):</label>
 			<label index="label.submit">Seitenempfehlung versenden</label>
 
-			<label index="validation.field.receiverFirstName">Emfänger Vorname</label>
-			<label index="validation.field.receiverLastName">Emfänger Name</label>
-			<label index="validation.field.receiverMail">Emfänger E-Mail</label>
+			<label index="validation.field.receiverFirstName">Empfänger Vorname</label>
+			<label index="validation.field.receiverLastName">Empfänger Name</label>
+			<label index="validation.field.receiverMail">Empfänger E-Mail</label>
 			<label index="validation.field.senderFirstName">Ihr Vorname</label>
 			<label index="validation.field.senderLastName">Ihr Name</label>
 			<label index="validation.field.senderMail">Ihre E-Mail-Adresse</label>
