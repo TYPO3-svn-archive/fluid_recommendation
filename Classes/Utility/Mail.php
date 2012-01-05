@@ -36,18 +36,23 @@ class Tx_FluidRecommendation_Utility_Mail {
 	protected $configurationManager = NULL;
 
 	/**
-	 * @var Tx_Fluid_View_TemplateView
+	 * @var Tx_Extbase_MVC_Controller_ControllerContext
+	 */
+	protected $controllerContext = NULL;
+
+	/**
+	 * @var Tx_Fluid_View_TemplateView|Tx_Fluid_View_StandaloneView
 	 */
 	protected $fluidTemplate = NULL;
 
 	/**
 	 * Set the fluid template from controller
 	 *
-	 * @param Tx_Fluid_View_TemplateView $fluidTemplate the fluid template
+	 * @param Tx_Fluid_View_TemplateView|Tx_Fluid_View_StandaloneView $fluidTemplate the fluid template
 	 *
 	 * @return void
 	 */
-	public function setFluidTemplate(Tx_Fluid_View_TemplateView $fluidTemplate) {
+	public function setFluidTemplate($fluidTemplate) {
 		$this->fluidTemplate = $fluidTemplate;
 	}
 

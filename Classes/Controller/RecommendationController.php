@@ -280,9 +280,15 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 	/**
 	 * Makes and returns a fluid template object
 	 *
-	 * @return Tx_Fluid_View_TemplateView the fluid template object
+	 * @return Tx_Fluid_View_TemplateView|Tx_Fluid_View_StandaloneView the fluid template object depending on
+	 *         TYPO3 version
 	 */
 	protected function makeFluidTemplateObject() {
+		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) >= 4006000) {
+			// If TYPO3 4.6.0 or greater
+			return t3lib_div::makeInstance('Tx_Fluid_View_StandaloneView');
+		}
+
 		/** @var Tx_Fluid_View_TemplateView $fluidTemplate  */
 		$fluidTemplate = t3lib_div::makeInstance('Tx_Fluid_View_TemplateView');
 
