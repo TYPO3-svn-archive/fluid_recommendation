@@ -132,7 +132,7 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 	public function recommendAction(Tx_FluidRecommendation_Domain_Model_Recommendation $recommendation = NULL) {
 		if (!$this->checkUrlWithAllowedDomains($recommendation->getUrl())) {
 			$error = Tx_Extbase_Utility_Localization::translate('error.urlManipulation', 'fluid_recommendation');
-			$this->redirect('showMailSendError', 'recommendation', NULL, array('url' => $recommendation->getUrl(), 'error' => $error));
+			$this->redirect('showMailSendError', NULL, NULL, array('url' => $recommendation->getUrl(), 'error' => $error));
 			return;
 		}
 
@@ -154,7 +154,7 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 		// Spam check
 		if ($this->isMailAddressGettingSpammed($recommendation->getReceiverMail()) === TRUE) {
 			$error = Tx_Extbase_Utility_Localization::translate('error.spam', 'fluid_recommendation');
-			$this->redirect('showMailSendError', 'recommendation', NULL, array('url' => $recommendation->getUrl(), 'error' => $error));
+			$this->redirect('showMailSendError', NULL, NULL, array('url' => $recommendation->getUrl(), 'error' => $error));
 			return;
 		}
 
@@ -163,7 +163,7 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 		if ($mailStatus === FALSE) {
 			$this->flashMessageContainer->flush();
 			$this->flashMessageContainer->add(Tx_Extbase_Utility_Localization::translate('error.unknown', 'fluid_recommendation'));
-			$this->redirect('showMailSendError', 'recommendation', NULL, array('url' => $recommendation->getUrl()));
+			$this->redirect('showMailSendError', NULL, NULL, array('url' => $recommendation->getUrl()));
 			return;
 		}
 
@@ -284,18 +284,27 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 	 *         TYPO3 version
 	 */
 	protected function makeFluidTemplateObject() {
+		$layoutDirectory = t3lib_div::getFileAbsFileName('EXT:fluid_recommendation/Resources/Private/Layouts/');
+		$partialDirectory = t3lib_div::getFileAbsFileName('EXT:fluid_recommendation/Resources/Private/Partials/');
+
 		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) >= 4006000) {
 			// If TYPO3 4.6.0 or greater
-			return t3lib_div::makeInstance('Tx_Fluid_View_StandaloneView');
+			/** @var $fluidTemplate Tx_Fluid_View_StandaloneView */
+			$fluidTemplate = t3lib_div::makeInstance('Tx_Fluid_View_StandaloneView');
+
+			$fluidTemplate->setLayoutRootPath($layoutDirectory);
+			$fluidTemplate->setPartialRootPath($partialDirectory);
+		} else {
+			/** @var Tx_Fluid_View_TemplateView $fluidTemplate  */
+			$fluidTemplate = t3lib_div::makeInstance('Tx_Fluid_View_TemplateView');
+
+			// Set controller context
+			$controllerContext = $this->buildControllerContext();
+			$controllerContext->setRequest($this->request);
+			$fluidTemplate->setControllerContext($controllerContext);
 		}
-
-		/** @var Tx_Fluid_View_TemplateView $fluidTemplate  */
-		$fluidTemplate = t3lib_div::makeInstance('Tx_Fluid_View_TemplateView');
-
-		// Set controller context
-		$controllerContext = $this->buildControllerContext();
-		$controllerContext->setRequest($this->request);
-		$fluidTemplate->setControllerContext($controllerContext);
+		$fluidTemplate->setLayoutRootPath($layoutDirectory);
+		$fluidTemplate->setPartialRootPath($partialDirectory);
 
 		return $fluidTemplate;
 	}
