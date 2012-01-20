@@ -2,7 +2,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Armin Ruediger Vieweg <armin.vieweg@diemedialen.de>
+ *  (c) 2011-2012 Armin Ruediger Vieweg <info@professorweb.de>
  *
  *  All rights reserved
  *
@@ -31,16 +31,6 @@
  */
 class Tx_FluidRecommendation_Utility_Mail {
 	/**
-	 * @var Tx_Extbase_Configuration_ConfigurationManagerInterface
-	 */
-	protected $configurationManager = NULL;
-
-	/**
-	 * @var Tx_Extbase_MVC_Controller_ControllerContext
-	 */
-	protected $controllerContext = NULL;
-
-	/**
 	 * @var Tx_Fluid_View_TemplateView|Tx_Fluid_View_StandaloneView
 	 */
 	protected $fluidTemplate = NULL;
@@ -54,17 +44,6 @@ class Tx_FluidRecommendation_Utility_Mail {
 	 */
 	public function setFluidTemplate($fluidTemplate) {
 		$this->fluidTemplate = $fluidTemplate;
-	}
-
-	/**
-	 * Set controller context from controller
-	 *
-	 * @param Tx_Extbase_MVC_Controller_ControllerContext $controllerContext controller context
-	 *
-	 * @return void
-	 */
-	public function setControllerContext(Tx_Extbase_MVC_Controller_ControllerContext $controllerContext) {
-		$this->controllerContext = $controllerContext;
 	}
 
 	/**

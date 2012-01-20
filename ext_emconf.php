@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "fluid_recommendation".
 #
-# Auto generated 09-01-2012 11:21
+# Auto generated 09-01-2011-2012 11:21
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -33,8 +33,8 @@ $EM_CONF[$_EXTKEY] = array(
 	'constraints' => array(
 		'depends' => array(
 			'typo3' => '4.5.0-0.0.0',
-			'extbase' => '1.3.0-0.0.0',
-			'fluid' => '1.3.0-0.0.0',
+			'extbase' => '1.3.0-1.5.99',
+			'fluid' => '1.3.0-1.5.99',
 		),
 		'conflicts' => array(
 		),

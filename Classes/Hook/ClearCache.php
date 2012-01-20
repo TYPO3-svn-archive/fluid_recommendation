@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2011 Armin Ruediger Vieweg <armin.vieweg@diemedialen.de>
+*  (c) 2011-2012 Armin Ruediger Vieweg <info@professorweb.de>
 *
 *  All rights reserved
 *
@@ -26,7 +26,7 @@
 /**
  * This class is used to clear the whole extensions cache if called by the backend
  *
- * @author Armin Rüdiger Vieweg <armin.vieweg@diemedialen.de>
+ * @author Armin Rüdiger Vieweg <info@professorweb.de>
  */
 class tx_FluidRecommendation_Hook_ClearCache {
 	/**

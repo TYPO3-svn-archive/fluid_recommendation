@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2011 Armin Ruediger Vieweg <armin.vieweg@diemedialen.de>
+*  (c) 2011-2012 Armin Ruediger Vieweg <info@professorweb.de>
 *
 *  All rights reserved
 *
@@ -35,7 +35,7 @@ class Tx_FluidRecommendation_Controller_ReturnRecommendationUrlController extend
 	/**
 	 * Returns link to formerly recommended page
 	 *
-	 * @return void
+	 * @return string html link
 	 */
 	public function returnUrlAction() {
 		$lastRecommendationUrl = $GLOBALS['TSFE']->fe_user->getKey('ses', 'tx_fluid_recommendation_lastRecommendedPage');

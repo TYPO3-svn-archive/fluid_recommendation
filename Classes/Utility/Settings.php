@@ -2,7 +2,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Armin Ruediger Vieweg <armin.vieweg@diemedialen.de>
+ *  (c) 2011-2012 Armin Ruediger Vieweg <info@professorweb.de>
  *
  *  All rights reserved
  *
