@@ -291,6 +291,9 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 			// If TYPO3 4.6.0 or greater
 			/** @var $fluidTemplate Tx_Fluid_View_StandaloneView */
 			$fluidTemplate = t3lib_div::makeInstance('Tx_Fluid_View_StandaloneView');
+
+			$fluidTemplate->setLayoutRootPath($layoutDirectory);
+			$fluidTemplate->setPartialRootPath($partialDirectory);
 		} else {
 			/** @var Tx_Fluid_View_TemplateView $fluidTemplate  */
 			$fluidTemplate = t3lib_div::makeInstance('Tx_Fluid_View_TemplateView');
@@ -300,7 +303,6 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 			$controllerContext->setRequest($this->request);
 			$fluidTemplate->setControllerContext($controllerContext);
 		}
-
 		$fluidTemplate->setLayoutRootPath($layoutDirectory);
 		$fluidTemplate->setPartialRootPath($partialDirectory);
 
