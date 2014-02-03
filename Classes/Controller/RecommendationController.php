@@ -151,23 +151,26 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 			}
 		}
 
-		// Spam check
+			// Spam check
 		if ($this->isMailAddressGettingSpammed($recommendation->getReceiverMail()) === TRUE) {
 			$error = Tx_Extbase_Utility_Localization::translate('error.spam', 'fluid_recommendation');
 			$this->redirect('showMailSendError', NULL, NULL, array('url' => $recommendation->getUrl(), 'error' => $error));
 			return;
 		}
 
-		// Send mail
-		$mailStatus = $this->mailUtility->sendRecommendationMail($recommendation);
-		if ($mailStatus === FALSE) {
-			$this->flashMessageContainer->flush();
-			$this->flashMessageContainer->add(Tx_Extbase_Utility_Localization::translate('error.unknown', 'fluid_recommendation'));
-			$this->redirect('showMailSendError', NULL, NULL, array('url' => $recommendation->getUrl()));
-			return;
+			// Honeypot check
+		if ($this->isBot($recommendation->getPassword(), $recommendation->getUsername()) === FALSE) {
+				// Send mail
+			$mailStatus = $this->mailUtility->sendRecommendationMail($recommendation);
+			if ($mailStatus === FALSE) {
+				$this->flashMessageContainer->flush();
+				$this->flashMessageContainer->add(Tx_Extbase_Utility_Localization::translate('error.unknown', 'fluid_recommendation'));
+				$this->redirect('showMailSendError', NULL, NULL, array('url' => $recommendation->getUrl()));
+				return;
+			}
 		}
 
-		// Save recommended page to session
+			// Save recommended page to session
 		$GLOBALS['TSFE']->fe_user->setKey('ses', 'tx_fluid_recommendation_lastRecommendedPage', $recommendation->getUrl());
 
 		if ($this->settings['actionOnSuccess'] === 'forward') {
@@ -208,6 +211,22 @@ class Tx_FluidRecommendation_Controller_RecommendationController extends Tx_Extb
 			}
 		}
 		return TRUE;
+	}
+
+	/**
+	 * Checks the two values to detect bots
+	 * The first value gets updated by JavaScript so bots with turned off JavaScript (almost all) will fail this test.
+	 * The second value is hidden with CSS and has to be empty. Stupid bots will fill this field.
+	 *
+	 * @param string $hiddenInput mail address to check
+	 * @param string $cssHiddenInput mail address to check
+	 * @return boolean Returns FALSE is it is no spam, returns TRUE if it is spam
+	 */
+	protected function isBot($hiddenInput, $cssHiddenInput) {
+		if ($this->settings['honeypot'] !== '1') {
+			return FALSE;
+		}
+		return ($hiddenInput !== '0' || $cssHiddenInput !== '');
 	}
 
 	/**

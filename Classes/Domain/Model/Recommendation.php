@@ -125,6 +125,20 @@ class Tx_FluidRecommendation_Domain_Model_Recommendation extends Tx_Extbase_Doma
 
 
 	/**
+	 * honeypot username
+	 *
+	 * @var string
+	 */
+	protected $username;
+
+	/**
+	 * honeypot password
+	 *
+	 * @var string
+	 */
+	protected $password;
+
+	/**
 	 * @return string
 	 */
 	public function getReceiverFirstName() {
@@ -249,6 +263,36 @@ class Tx_FluidRecommendation_Domain_Model_Recommendation extends Tx_Extbase_Doma
 	 */
 	public function getSubject() {
 		return $this->subject;
+	}
+
+	/**
+	 * @param string $password
+	 * @return void
+	 */
+	public function setPassword($password) {
+		$this->password = $password;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPassword() {
+		return $this->password;
+	}
+
+	/**
+	 * @param string $username
+	 * @return void
+	 */
+	public function setUsername($username) {
+		$this->username = $username;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getUsername() {
+		return $this->username;
 	}
 
 	/**

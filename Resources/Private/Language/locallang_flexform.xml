@@ -27,6 +27,7 @@
 			<label index="mail.templateRootFileHtml">Mail html template (text/html):</label>
 
 			<label index="validate.allowedUrls">Allowed Domains (i.e. www.domain.com,domain.com - leave blank for current domain)</label>
+			<label index="validate.honeypot">Enable Honeypot</label>
 			<label index="validate.spamPreventDuration">Spam-Protection (in seconds, 3600 = 1 hour, 0 = disabled)</label>
 
 			<label index="validate.requiredFields">Following, selected fields are required in recommendation form:</label>
@@ -60,6 +61,7 @@
 			<label index="mail.templateRootFileHtml">E-Mail HTML-Template (text/html):</label>
 
 			<label index="validate.allowedUrls">Erlaubte Domains (z.B. www.domain.com,domain.com - leer lassen um aktuelle Domain zu verwenden)</label>
+			<label index="validate.honeypot">Honeypot aktivieren</label>
 			<label index="validate.spamPreventDuration">Spam-Schutz (in Sekunden, 3600 = 1 Stunde, 0 = deaktiviert)</label>
 
 			<label index="validate.requiredFields">Markierte Felder werden beim Ausfüllen des Empfehlungs-Formulars benötigt:</label>

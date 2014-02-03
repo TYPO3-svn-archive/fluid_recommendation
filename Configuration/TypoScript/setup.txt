@@ -7,3 +7,13 @@ plugin.tx_fluidRecommendation {
 		storagePid =
 	}
 }
+
+page {
+	includeJS.fluid_recommendation = EXT:fluid_recommendation/Resources/Public/JavaScript/main.js
+}
+
+plugin.tx_fluidRecommendation._CSS_DEFAULT_STYLE (
+	.fluidRecommendation-totallyVisible {
+		display: none;
+	}
+)

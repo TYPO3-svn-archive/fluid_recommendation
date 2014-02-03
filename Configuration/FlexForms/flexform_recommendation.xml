@@ -189,6 +189,16 @@
 						</TCEforms>
 					</settings.allowedUrls>
 
+					<settings.honeypot>
+						<TCEforms>
+							<label>LLL:EXT:fluid_recommendation/Resources/Private/Language/locallang_flexform.xml:validate.honeypot</label>
+							<config>
+								<type>check</type>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</settings.honeypot>
+
 					<settings.spamPreventDuration>
 						<TCEforms>
 							<label>LLL:EXT:fluid_recommendation/Resources/Private/Language/locallang_flexform.xml:validate.spamPreventDuration</label>
